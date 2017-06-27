@@ -16,7 +16,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 " Plugin 'klen/python-mode'
 " Plugin 'davidhalter/jedi-vim'
@@ -39,15 +39,16 @@ set hidden
 " Colorized
 if has('gui_running')
 	colorscheme evening
-	set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline 10
+    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline 10
 else 
- 	colorscheme darkblue
+	colorscheme darkblue
 endif
 colorscheme wombat256mod
 set t_Co=256
 " 
 set wrap
 set linebreak
+set expandtab
 
 " Помним что редактировали в последний раз.
 if has("autocmd")
@@ -63,9 +64,10 @@ endif
 "   при переходе за границу в 80 символов в Ruby/Python/js/C/C++ подсвечиваем на темном фоне текст
 augroup vimrc_autocmds
     autocmd!
-    autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%81v.*/
-    autocmd FileType ruby,python,javascript,c,cpp set nowrap
+    autocmd FileType yaml,json,lua,html set sw=2 ts=2 
+    autocmd FileType php,ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType php,ruby,python,javascript,c,cpp match Excess /\%81v.*/
+    autocmd FileType php,ruby,python,javascript,c,cpp set nowrap
 augroup END
 " Cyrillic in input mode change layout by pressing Ctrl+^
 set keymap=russian-jcukenwin  
@@ -150,7 +152,6 @@ nmap <leader>bl :BuffergatorToggle<CR>
 nmap <leader>p :CtrlP<CR>
 nmap <leader>bb :CtrlPBuffer<CR>
 nmap <leader>bm :CtrlPMixed<CR>
-noremap <Enter> o<Esc>
 
 " Pymode settings
 " let g:pymode_rope = 0
@@ -186,3 +187,4 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>G :YcmCompleter GoToDeclaration<CR>
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

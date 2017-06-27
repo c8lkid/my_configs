@@ -1,12 +1,11 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
 # Colors
-RED="\033[31m"
-BLUE="\033[01;34m"
-NONE="\033[00m"
-GREEN="\033[01;32m"
+GREEN='\[\033[01;32m\]'
+BLUE='\[\033[01;34m\]'
+RED='\[\033[01;31m\]'
+NO_COLOR='\[\033[00m\]'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -42,11 +41,6 @@ case "$TERM" in
     tmux|urxvt|xterm-color) color_prompt=yes;;
 esac
 
-# parse git branch
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -64,9 +58,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-		PS1="${debian_chroot:+($debian_chroot)}╭─\[${GREEN}\]\u@\h\[${NONE}\]:\[${BLUE}\]\w${RED}$(parse_git_branch)\[${NONE}\]\n\[${BLUE}\]\[${NONE}\]╰─➤"
+    PS1="${debian_chroot:+($debian_chroot)}╭─${GREEN}\u@\h${NO_COLOR}:${BLUE}\w ${RED}\$(git branch 2>/dev/null | grep '^*'| colrm 1 2)${NO_COLOR}\n╰─➤"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -81,9 +75,11 @@ esac
 
 #enable 256 colors in terminal
 export TERM=xterm-256color
-#export TERM=urxvt
+export TERMINAL=urxvt
 export PATH=$PATH:/sbin
 export EDITOR=/usr/bin/vim
+# history for all sessions
+export PROMPT_COMMAND='history -a'
 
 #virtual environment
 # export WORKON_HOME=$HOME/.virtualenvs
@@ -114,6 +110,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias aptuu='sudo apt-get update && sudo apt-get -y upgrade'
 
 #colored some utilities
 alias ping='grc --colour=auto ping'
