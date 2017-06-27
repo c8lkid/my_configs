@@ -34,25 +34,62 @@
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
- URxvt*background:                     #212121
- URxvt*foreground:                     #C0C0C0
-! Other colors
-URxvt.color0:           #3f3f3f
-URxvt.color1:           #d05050
-URxvt.color2:           #00c45a
-URxvt.color3:           #25e385
-URxvt.color4:           #3060e0
-URxvt.color5:           #dc8cc3
-URxvt.color6:           #8cd0d3
-URxvt.color7:           #dcdccc
-URxvt.color8:           #709080
-URxvt.color9:           #cc5454
-URxvt.color10:          #4d9f4d
-URxvt.color11:          #f0dfaf
-URxvt.color12:          #4186be
-URxvt.color13:          #ec93d3
-URxvt.color14:          #93e0e3
-URxvt.color15:          #ffffff
+! URxvt*background:                     #212121
+! URxvt*foreground:                     #C0C0C0
+! ! Other colors
+! URxvt.color0:           #3f3f3f
+! URxvt.color1:           #d05050
+! URxvt.color2:           #00c45a
+! URxvt.color3:           #25e385
+! URxvt.color4:           #3060e0
+! URxvt.color5:           #dc8cc3
+! URxvt.color6:           #8cd0d3
+! URxvt.color7:           #dcdccc
+! URxvt.color8:           #709080
+! URxvt.color9:           #cc5454
+! URxvt.color10:          #4d9f4d
+! URxvt.color11:          #f0dfaf
+! URxvt.color12:          #4186be
+! URxvt.color13:          #ec93d3
+! URxvt.color14:          #93e0e3
+! URxvt.color15:          #ffffff
+
+! special
+URxvt.foreground:   #d3d0c8
+URxvt.background:   #2d2d2d
+URxvt.cursorColor:  #d3d0c8
+
+! black
+URxvt.color0:       #2d2d2d
+URxvt.color8:       #747369
+
+! red
+URxvt.color1:       #f2777a
+URxvt.color9:       #f2777a
+
+! green
+URxvt.color2:       #99cc99
+URxvt.color10:      #99cc99
+
+! yellow
+URxvt.color3:       #ffcc66
+URxvt.color11:      #ffcc66
+
+! blue
+URxvt.color4:       #6699cc
+URxvt.color12:      #6699cc
+
+! magenta
+URxvt.color5:       #cc99cc
+URxvt.color13:      #cc99cc
+
+! cyan
+URxvt.color6:       #66cccc
+URxvt.color14:      #66cccc
+
+! white
+URxvt.color7:       #d3d0c8
+URxvt.color15:      #f2f0ec
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -135,3 +172,8 @@ URxvt*letterSpace:                    -1
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~

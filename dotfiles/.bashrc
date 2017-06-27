@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Colors
+RED=\033[31m
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -36,6 +39,11 @@ case "$TERM" in
     tmux|urxvt|xterm-color) color_prompt=yes;;
 esac
 
+# parse git branch
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -53,7 +61,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}╭─\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;34m\]\[\033[00m\]╰─➤'
+		PS1='${debian_chroot:+($debian_chroot)}╭─\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\033[31m$(parse_git_branch)\[\033[00m\]\n\[\033[01;34m\]\[\033[00m\]╰─➤'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

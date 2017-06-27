@@ -37,11 +37,12 @@ set hidden
 " End vundle configuration
 " 
 " Colorized
-" if has('gui_running')
-" 	colorscheme evening
-" else 
-" 	colorscheme darkblue
-" endif
+if has('gui_running')
+	colorscheme evening
+	set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline 10
+else 
+ 	colorscheme darkblue
+endif
 colorscheme wombat256mod
 set t_Co=256
 " 
@@ -80,7 +81,6 @@ set backspace=indent,start,eol
 set showcmd
 set hls
 set bg=dark
-set gfn=Inconsolata\ LGC\ 11
 set nolist
 set tabstop=4
 set softtabstop=4
@@ -131,7 +131,7 @@ noremap <C-H> :nohlsearch<CR>
 " inoremap jk <Esc>l
 " inoremap ол <Esc>l
 inoremap <leader>q <Esc><Esc>l
-" inoremap <C-C> <Esc><Esc>
+inoremap <C-C> <Esc><Esc>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 " inoremap <Up> <nop>
