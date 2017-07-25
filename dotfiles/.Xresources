@@ -108,7 +108,8 @@ URxvt.color15:      #f2f0ec
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
 !URxvt*font:                          xft:Dejavu Sans Mono for Powerline:b:pixelsize=15
-URxvt*font:                          xft:Droid Sans Mono Slashed for Powerline:pixelsize=15
+! URxvt*font:                          xft:Droid Sans Mono Slashed for Powerline:pixelsize=15
+URxvt*font:                          xft:Droid Sans Mono Awesome:pixelsize=15
 !URxvt*font:							  xft:Inconsolata for Powerline:pixelsize=17
 !URxvt*boldFont:                      xft:Dejavu Sans Mono Bold for Powerline:pixelsize=15
 ! URxvt*italicFont:                     fontname

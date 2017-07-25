@@ -49,6 +49,7 @@ set t_Co=256
 set wrap
 set linebreak
 set expandtab
+set listchars=tab:➔\ ,trail:⋅,precedes:‹,extends:›,eol:↲,nbsp:␣
 
 " Помним что редактировали в последний раз.
 if has("autocmd")

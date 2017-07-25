@@ -58,7 +58,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}╭─${GREEN}\u@\h${NO_COLOR}:${BLUE}\w ${RED}\$(git branch 2>/dev/null | grep '^*'| colrm 1 2)${NO_COLOR}\n╰─➤"
+    PS1="${debian_chroot:+($debian_chroot)}╭─${GREEN}\u@\h${NO_COLOR}:${BLUE}\w ${NO_COLOR}\n╰─➤"
+    # PS1="${debian_chroot:+($debian_chroot)}╭─${GREEN}\u@\h${NO_COLOR}:${BLUE}\w ${RED}\$(git branch 2>/dev/null | grep '^*'| colrm 1 2)${NO_COLOR}\n╰─➤"
 else
     PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
 fi
@@ -138,8 +139,13 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# for cheat.sh completion
+source ~/.bash.d/cheat.sh
+
 # History search
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\C-p": history-search-backward'
 bind '"\C-n": history-search-forward'
+source /home/algvozdev/.oh-my-git/prompt.sh
