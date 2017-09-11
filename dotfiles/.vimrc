@@ -38,18 +38,21 @@ set hidden
 " 
 " Colorized
 if has('gui_running')
-	colorscheme evening
-    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline 10
+	colorscheme wombat256mod
+    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 10
 else 
-	colorscheme darkblue
+	colorscheme wombat256mod
 endif
-colorscheme wombat256mod
+" colorscheme wombat256mod
 set t_Co=256
 " 
 set wrap
 set linebreak
 set expandtab
-set listchars=tab:➔\ ,trail:⋅,precedes:‹,extends:›,eol:↲,nbsp:␣
+" set listchars=tab:➔\ ,trail:⋅,precedes:‹,extends:›,eol:↲,nbsp:␣
+set listchars=tab:➔\ ,trail:⋅,precedes:‹,extends:›,eol:↲,space:␣
+
+au FocusGained * :redraw!
 
 " Помним что редактировали в последний раз.
 if has("autocmd")
@@ -95,8 +98,9 @@ set nobackup
 set nowritebackup
 set incsearch	     " инкреминтируемый поиск
 "  прячем панельки
-" set guioptions-=m   " меню
+set guioptions-=m   " меню
 set guioptions-=T    " тулбар
+set guioptions-=r    " hide right scrollbar
 " set guioptions-=r   "  скроллбары
 
 " My functions
