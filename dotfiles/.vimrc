@@ -135,10 +135,11 @@ noremap <S-Tab> <C-W>W
 " nnoremap <S-Space> <PageUp>
 nnoremap * *N
 noremap <C-H> :nohlsearch<CR>
+inoremap ,, <ESC>l
 " inoremap jk <Esc>l
 " inoremap ол <Esc>l
 inoremap <leader>q <Esc><Esc>l
-inoremap <C-C> <Esc><Esc>
+" inoremap <C-C> <Esc><Esc>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 " inoremap <Up> <nop>
