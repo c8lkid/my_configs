@@ -4,8 +4,6 @@ local debug = require("gears.debug")
 
 rules = {}
 function rules:init(args)
-  debug.print_warning(args.clientkeys)
-  debug.print_warning(args.test)
   local args = args or {}
   -- {{{ Rules
   -- Rules to apply to new clients (through the "manage" signal).
@@ -19,7 +17,8 @@ function rules:init(args)
                        keys = args.clientkeys,
                        buttons = args.clientbuttons,
                        screen = awful.screen.preferred,
-                       placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                       -- placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                       placement = awful.placement.center_horizontal,
              size_hints_honor = false
        }
       },
@@ -30,22 +29,10 @@ function rules:init(args)
             "DTA",  -- Firefox addon DownThemAll.
             "copyq",  -- Includes session name in class.
           },
-          class = {
-            "Arandr",
-            "Gpick",
-            "Kruler",
-            "MessageWin",  -- kalarm.
-            "Sxiv",
-            "Wpa_gui",
-            "pinentry",
-            "veromix",
-            "xtightvncviewer"},
-
           name = {
             "Event Tester",  -- xev.
           },
           role = {
-            "AlarmWindow",  -- Thunderbird's calendar.
             "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
           }
         }, properties = { floating = true }},
@@ -54,6 +41,10 @@ function rules:init(args)
       { rule_any = {type = { "normal", "dialog" }
         }, properties = { titlebars_enabled = false }
       },
+      
+      -- Set Transmission-gtk to always map on the tag 6 on screen 1.
+      { rule = { class = "Transmission-gtk" },
+        properties = { screen = 1, tag = " Ω " } },
 
       -- Set Firefox to always map on the tag named "2" on screen 1.
       { rule = { class = "Firefox" },

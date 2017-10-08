@@ -140,9 +140,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# for cheat.sh completion
-source ~/.bash.d/cheat.sh
-
 # History search
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'

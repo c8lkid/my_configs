@@ -2,6 +2,7 @@ local awful = require("awful")
 local debug = require("gears.debug")
 require("awful.hotkeys_popup.keys.vim")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
+local menubar = require("menubar")
 
 local hotkeys = {}
 
@@ -106,7 +107,7 @@ function hotkeys:init(args)
           {description = "go back", group = "client"}),
 
       -- Standard program
-      awful.key({ args.modkey,           }, "Return", function () awful.spawn(terminal) end,
+      awful.key({ args.modkey,           }, "Return", function () awful.spawn(args.terminal) end,
                 {description = "open a terminal", group = "launcher"}),
       awful.key({ args.modkey, "Control" }, "r", awesome.restart,
                 {description = "reload awesome", group = "awesome"}),
@@ -157,7 +158,17 @@ function hotkeys:init(args)
                 {description = "lua execute prompt", group = "awesome"}),
       -- Menubar
       awful.key({ args.modkey }, "p", function() menubar.show() end,
-                {description = "show the menubar", group = "launcher"})
+                {description = "show the menubar", group = "launcher"}),
+      awful.key({ }, "XF86MonBrightnessUp",
+                function ()
+                    awful.spawn.with_shell("xbacklight -inc 10")
+                  end,
+                  {description = "Up brightness by 10 %", group = "awsome"}),
+      awful.key({ }, "XF86MonBrightnessDown",
+                function ()
+                    awful.spawn.with_shell("xbacklight -dec 10")
+                  end,
+                  {description = "Up brightness by 10 %", group = "awsome"})
   )
 
   self.clientkeys = awful.util.table.join(
