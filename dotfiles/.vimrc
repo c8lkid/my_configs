@@ -12,7 +12,7 @@ call vundle#begin()
 
 "  let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-""Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -41,7 +41,7 @@ if has('gui_running')
 	colorscheme wombat256mod
     set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 10
 else 
-	colorscheme wombat256mod
+	colorscheme darkblue
 endif
 " colorscheme wombat256mod
 set t_Co=256
@@ -72,6 +72,7 @@ augroup vimrc_autocmds
     autocmd FileType php,ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType php,ruby,python,javascript,c,cpp match Excess /\%81v.*/
     autocmd FileType php,ruby,python,javascript,c,cpp set nowrap
+    autocmd FileType python colorscheme pychimp
 augroup END
 " Cyrillic in input mode change layout by pressing Ctrl+^
 set keymap=russian-jcukenwin  
@@ -193,4 +194,5 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>G :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>Gr :YcmCompleter GoToReferences<CR>
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

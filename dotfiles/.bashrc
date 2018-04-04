@@ -115,6 +115,7 @@ alias aptuu='sudo apt-get update && sudo apt-get -y upgrade'
 
 #colored some utilities
 alias ping='grc --colour=auto ping'
+alias tail='grc --colour=auto tail'
 alias diff='grc --colour=auto diff'
 alias netstat='grc --colour=auto netstat'
 alias last='grc --colour=auto last'
